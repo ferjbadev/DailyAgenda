@@ -1,16 +1,29 @@
+import { useState } from "react"
 import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Trash2, CalendarIcon, Clock } from "lucide-react"
+import { CalendarIcon, Clock } from "lucide-react"
 import type { CalendarEvent } from "@/components/calendar"
+import { EventDetailsDialog } from "@/components/event-details-dialog"
 
 interface EventListProps {
   events: CalendarEvent[]
   currentMonth: number
   currentYear: number
   onDeleteEvent: (id: string) => void
+  onEditEvent?: (event: CalendarEvent) => void
 }
 
-export function EventList({ events, currentMonth, currentYear, onDeleteEvent }: EventListProps) {
+export function EventList({ events, currentMonth, currentYear, onDeleteEvent, onEditEvent }: EventListProps) {
+  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null)
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false)
+
+  const handleEventClick = (event: CalendarEvent) => {
+    setSelectedEvent(event)
+    setIsDetailsOpen(true)
+  }
+
+  const handleEdit = (event: CalendarEvent) => {
+    onEditEvent?.(event)
+  }
   const filteredEvents = events
     .filter((event) => {
       const eventDate = new Date(event.date)
@@ -33,7 +46,7 @@ export function EventList({ events, currentMonth, currentYear, onDeleteEvent }: 
       ) : (
         <div className="space-y-3">
           {filteredEvents.map((event) => (
-            <Card key={event.id} className="p-4">
+            <Card key={event.id} className="p-4 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => handleEventClick(event)}>
               <div className="flex items-start justify-between gap-2">
                 <div className="flex-1">
                   <h4 className="font-semibold text-[--color-card-foreground]">{event.title}</h4>
@@ -54,19 +67,19 @@ export function EventList({ events, currentMonth, currentYear, onDeleteEvent }: 
                   </div>
                   {event.description && <p className="mt-2 text-sm text-[--color-muted-foreground]">{event.description}</p>}
                 </div>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => onDeleteEvent(event.id)}
-                  className="text-[--color-destructive] hover:text-[--color-destructive]"
-                >
-                  <Trash2 className="h-4 w-4" />
-                </Button>
               </div>
             </Card>
           ))}
         </div>
       )}
+      
+      <EventDetailsDialog
+        open={isDetailsOpen}
+        onOpenChange={setIsDetailsOpen}
+        event={selectedEvent}
+        onEdit={handleEdit}
+        onDelete={onDeleteEvent}
+      />
     </Card>
   )
 }
