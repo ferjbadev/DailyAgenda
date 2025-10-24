@@ -34,7 +34,6 @@ export default function Calendar() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
   const [events, setEvents] = useState<CalendarEvent[]>([])
   const [isDialogOpen, setIsDialogOpen] = useState(false)
-  const [editingEvent, setEditingEvent] = useState<CalendarEvent | null>(null)
 
   const year = currentDate.getFullYear()
   const month = currentDate.getMonth()
@@ -72,7 +71,6 @@ export default function Calendar() {
   }
 
   const handleEditEvent = (event: CalendarEvent) => {
-    setEditingEvent(event)
     setSelectedDate(new Date(event.date))
     setIsDialogOpen(true)
   }
