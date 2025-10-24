@@ -128,7 +128,7 @@ export default function Calendar() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-3">
-      <Card className="p-6 lg:col-span-2">
+      <Card className="p-6 lg:col-span-2 bg-white">
         <div className="mb-6">
           <h2 className="text-2xl font-semibold text-center mb-4">
             {MONTHS[month]} {year}
