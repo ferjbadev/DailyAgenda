@@ -39,8 +39,8 @@ export function EventList({ events, currentMonth, currentYear, onDeleteEvent, on
     })
 
   return (
-    <Card className="p-6">
-      <h3 className="mb-4 text-xl font-semibold text-center">Monthly Events</h3>
+    <Card className="p-6 bg-white">
+      <h3 className="mb-4 text-xl font-semibold text-center ">Monthly Events</h3>
       {filteredEvents.length === 0 ? (
         <p className="text-center text-[--color-muted-foreground]">No events this month</p>
       ) : (
