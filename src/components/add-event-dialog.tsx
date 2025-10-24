@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import type { CalendarEvent } from "@/components/calendar"
+import { PlusIcon } from "lucide-react"
 
 interface AddEventDialogProps {
   open: boolean
@@ -58,8 +59,8 @@ export function AddEventDialog({ open, onOpenChange, onAddEvent, selectedDate }:
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="bg-white shadow-2xl border-2 border-[--color-border]">
         <DialogHeader className="space-y-3 pb-2 text-center">
-          <DialogTitle className="text-2xl font-bold text-black">Add Event</DialogTitle>
-          <DialogDescription className="text-base">Fill in your event details</DialogDescription>
+          <DialogTitle className="text-2xl text-center font-bold text-black">Add Event</DialogTitle>
+          <DialogDescription className="text-base text-center">Fill in your event details</DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit}>
           <div className="grid gap-5 py-6">
@@ -92,8 +93,10 @@ export function AddEventDialog({ open, onOpenChange, onAddEvent, selectedDate }:
               />
             </div>
           </div>
-          <DialogFooter className="gap-3 pt-4">
-            <Button type="submit">Save Event</Button>
+          <DialogFooter className="gap-3 pt-4 justify-center">
+            <Button type="submit">Save Event
+              <PlusIcon className="w-4 h-4 ml-2" />
+            </Button>
             <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>
               Cancel
             </Button>
