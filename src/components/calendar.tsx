@@ -34,6 +34,7 @@ export default function Calendar() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
   const [events, setEvents] = useState<CalendarEvent[]>([])
   const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const [editingEvent, setEditingEvent] = useState<CalendarEvent | null>(null)
 
   const year = currentDate.getFullYear()
   const month = currentDate.getMonth()
@@ -68,6 +69,12 @@ export default function Calendar() {
 
   const handleDeleteEvent = (id: string) => {
     setEvents(events.filter((event) => event.id !== id))
+  }
+
+  const handleEditEvent = (event: CalendarEvent) => {
+    setEditingEvent(event)
+    setSelectedDate(new Date(event.date))
+    setIsDialogOpen(true)
   }
 
   const getEventsForDate = (day: number) => {
@@ -154,7 +161,7 @@ export default function Calendar() {
       </Card>
 
       <div className="lg:col-span-1">
-        <EventList events={events} currentMonth={month} currentYear={year} onDeleteEvent={handleDeleteEvent} />
+        <EventList events={events} currentMonth={month} currentYear={year} onDeleteEvent={handleDeleteEvent} onEditEvent={handleEditEvent} />
       </div>
 
       <AddEventDialog
