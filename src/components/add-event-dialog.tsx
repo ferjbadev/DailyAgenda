@@ -56,7 +56,7 @@ export function AddEventDialog({ open, onOpenChange, onAddEvent, selectedDate }:
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] bg-white">
         <DialogHeader>
           <DialogTitle>Agregar Evento</DialogTitle>
           <DialogDescription>Completa los detalles de tu evento</DialogDescription>
