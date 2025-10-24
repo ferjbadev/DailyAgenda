@@ -89,7 +89,7 @@ export default function Calendar() {
 
     // Empty cells for days before the first day of the month
     for (let i = 0; i < startingDayOfWeek; i++) {
-      days.push(<div key={`empty-${i}`} className="aspect-square p-2" />)
+      days.push(<div key={`empty-${i}`} className="aspect-square p-2 border-r border-b border-black" />)
     }
 
     // Days of the month
@@ -102,7 +102,7 @@ export default function Calendar() {
         <button
           key={day}
           onClick={() => handleDateClick(day)}
-          className={`aspect-square p-2 rounded-lg transition-colors hover:bg-[--color-accent] hover:text-[--color-accent-foreground] cursor-pointer ${
+          className={`aspect-square p-2 transition-colors hover:bg-[--color-accent] hover:text-[--color-accent-foreground] cursor-pointer border-r border-b border-black ${
             isToday ? "bg-[--color-primary] text-[--color-primary-foreground] font-semibold" : ""
           }`}
         >
@@ -143,9 +143,9 @@ export default function Calendar() {
           </div>
         </div>
 
-        <div className="grid grid-cols-7 gap-2">
+        <div className="grid grid-cols-7 border border-black">
           {DAYS.map((day) => (
-            <div key={day} className="p-2 text-center text-sm font-medium text-[--color-muted-foreground]">
+            <div key={day} className="p-2 text-center text-sm font-medium text-[--color-muted-foreground] border-b border-black">
               {day}
             </div>
           ))}
