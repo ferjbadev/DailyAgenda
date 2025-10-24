@@ -7,13 +7,13 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className = "", variant = "default", size = "default", ...props }, ref) => {
-    const baseStyles = "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer"
+    const baseStyles = "inline-flex items-center justify-center rounded-lg font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer shadow-sm hover:shadow-md"
     
     const variants = {
-      default: "bg-[--color-primary] text-[--color-primary-foreground] hover:opacity-90",
-      outline: "border border-[--color-input] bg-[--color-background] hover:bg-[--color-accent] hover:text-[--color-accent-foreground]",
-      ghost: "hover:bg-[--color-accent] hover:text-[--color-accent-foreground]",
-      destructive: "bg-[--color-destructive] text-[--color-destructive-foreground] hover:opacity-90",
+      default: "bg-[--color-primary] text-[--color-primary-foreground] border-2 border-[--color-primary] hover:bg-[--color-primary]/90 hover:border-[--color-primary]/90",
+      outline: "border-2 border-[--color-primary] bg-transparent text-[--color-primary] hover:bg-[--color-primary] hover:text-white",
+      ghost: "border-2 border-transparent hover:bg-[--color-accent] hover:text-[--color-accent-foreground] hover:border-[--color-accent]",
+      destructive: "bg-[--color-destructive] text-[--color-destructive-foreground] border-2 border-[--color-destructive] hover:bg-[--color-destructive]/90 hover:border-[--color-destructive]/90",
     }
     
     const sizes = {
