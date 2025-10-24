@@ -122,11 +122,11 @@ export default function Calendar() {
   return (
     <div className="grid gap-6 lg:grid-cols-3">
       <Card className="p-6 lg:col-span-2">
-        <div className="mb-6 flex items-center justify-between">
-          <h2 className="text-2xl font-semibold">
+        <div className="mb-6">
+          <h2 className="text-2xl font-semibold text-center mb-4">
             {MONTHS[month]} {year}
           </h2>
-          <div className="flex gap-2">
+          <div className="flex gap-2 justify-center">
             <Button variant="outline" size="icon" onClick={previousMonth}>
               <ChevronLeft className="h-4 w-4" />
             </Button>
