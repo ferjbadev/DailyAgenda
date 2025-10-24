@@ -57,13 +57,13 @@ export function AddEventDialog({ open, onOpenChange, onAddEvent, selectedDate }:
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[550px] bg-white shadow-2xl border-2 border-[--color-border]">
-        <DialogHeader>
-          <DialogTitle>Add Event</DialogTitle>
-          <DialogDescription>Fill in your event details</DialogDescription>
+        <DialogHeader className="space-y-3 pb-2">
+          <DialogTitle className="text-2xl font-bold text-[--color-primary]">Add Event</DialogTitle>
+          <DialogDescription className="text-base">Fill in your event details</DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit}>
-          <div className="grid gap-4 py-4">
-            <div className="grid gap-2">
+          <div className="grid gap-5 py-6">
+            <div className="grid gap-2.5">
               <Label htmlFor="title">Title</Label>
               <Input
                 id="title"
@@ -73,15 +73,15 @@ export function AddEventDialog({ open, onOpenChange, onAddEvent, selectedDate }:
                 required
               />
             </div>
-            <div className="grid gap-2">
+            <div className="grid gap-2.5">
               <Label htmlFor="date">Date</Label>
               <Input id="date" type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
             </div>
-            <div className="grid gap-2">
+            <div className="grid gap-2.5">
               <Label htmlFor="time">Time</Label>
               <Input id="time" type="time" value={time} onChange={(e) => setTime(e.target.value)} required />
             </div>
-            <div className="grid gap-2">
+            <div className="grid gap-2.5">
               <Label htmlFor="description">Description (optional)</Label>
               <Textarea
                 id="description"
