@@ -145,8 +145,8 @@ export default function Calendar() {
           {renderCalendarDays()}
         </div>
 
-        <div className="mt-6">
-          <Button onClick={() => setIsDialogOpen(true)} className="w-full">
+        <div className="mt-6 flex justify-center">
+          <Button onClick={() => setIsDialogOpen(true)} className="w-auto">
             <Plus className="mr-2 h-4 w-4" />
             Add Event
           </Button>
