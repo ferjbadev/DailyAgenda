@@ -27,9 +27,9 @@ export function EventList({ events, currentMonth, currentYear, onDeleteEvent }: 
 
   return (
     <Card className="p-6">
-      <h3 className="mb-4 text-xl font-semibold">Eventos del Mes</h3>
+      <h3 className="mb-4 text-xl font-semibold">Monthly Events</h3>
       {filteredEvents.length === 0 ? (
-        <p className="text-center text-[--color-muted-foreground]">No hay eventos este mes</p>
+        <p className="text-center text-[--color-muted-foreground]">No events this month</p>
       ) : (
         <div className="space-y-3">
           {filteredEvents.map((event) => (
@@ -41,7 +41,7 @@ export function EventList({ events, currentMonth, currentYear, onDeleteEvent }: 
                     <div className="flex items-center gap-2">
                       <CalendarIcon className="h-3.5 w-3.5" />
                       <span>
-                        {new Date(event.date).toLocaleDateString("es-ES", {
+                        {new Date(event.date).toLocaleDateString("en-US", {
                           day: "numeric",
                           month: "long",
                         })}

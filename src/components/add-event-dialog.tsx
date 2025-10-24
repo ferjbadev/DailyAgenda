@@ -56,47 +56,47 @@ export function AddEventDialog({ open, onOpenChange, onAddEvent, selectedDate }:
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px] bg-white">
+      <DialogContent className="sm:max-w-[550px] bg-white shadow-2xl border-2 border-[--color-border]">
         <DialogHeader>
-          <DialogTitle>Agregar Evento</DialogTitle>
-          <DialogDescription>Completa los detalles de tu evento</DialogDescription>
+          <DialogTitle>Add Event</DialogTitle>
+          <DialogDescription>Fill in your event details</DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit}>
           <div className="grid gap-4 py-4">
             <div className="grid gap-2">
-              <Label htmlFor="title">Título</Label>
+              <Label htmlFor="title">Title</Label>
               <Input
                 id="title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="Reunión de equipo"
+                placeholder="Team meeting"
                 required
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="date">Fecha</Label>
+              <Label htmlFor="date">Date</Label>
               <Input id="date" type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="time">Hora</Label>
+              <Label htmlFor="time">Time</Label>
               <Input id="time" type="time" value={time} onChange={(e) => setTime(e.target.value)} required />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="description">Descripción (opcional)</Label>
+              <Label htmlFor="description">Description (optional)</Label>
               <Textarea
                 id="description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="Detalles adicionales del evento"
+                placeholder="Additional event details"
                 rows={3}
               />
             </div>
           </div>
           <DialogFooter>
             <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>
-              Cancelar
+              Cancel
             </Button>
-            <Button type="submit">Guardar Evento</Button>
+            <Button type="submit">Save Event</Button>
           </DialogFooter>
         </form>
       </DialogContent>

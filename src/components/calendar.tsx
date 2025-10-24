@@ -13,20 +13,20 @@ export interface CalendarEvent {
   description?: string
 }
 
-const DAYS = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"]
+const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 const MONTHS = [
-  "Enero",
-  "Febrero",
-  "Marzo",
-  "Abril",
-  "Mayo",
-  "Junio",
-  "Julio",
-  "Agosto",
-  "Septiembre",
-  "Octubre",
-  "Noviembre",
-  "Diciembre",
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ]
 
 export default function Calendar() {
@@ -148,7 +148,7 @@ export default function Calendar() {
         <div className="mt-6">
           <Button onClick={() => setIsDialogOpen(true)} className="w-full">
             <Plus className="mr-2 h-4 w-4" />
-            Agregar Evento
+            Add Event
           </Button>
         </div>
       </Card>
