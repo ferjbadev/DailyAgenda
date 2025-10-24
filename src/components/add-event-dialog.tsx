@@ -58,7 +58,7 @@ export function AddEventDialog({ open, onOpenChange, onAddEvent, selectedDate }:
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="bg-white shadow-2xl border-2 border-[--color-border]">
         <DialogHeader className="space-y-3 pb-2 text-center">
-          <DialogTitle className="text-2xl font-bold text-[--color-primary]">Add Event</DialogTitle>
+          <DialogTitle className="text-2xl font-bold text-black">Add Event</DialogTitle>
           <DialogDescription className="text-base">Fill in your event details</DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit}>
