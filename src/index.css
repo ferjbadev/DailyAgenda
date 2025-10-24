@@ -2,13 +2,13 @@
 
 @theme {
   --color-background: #f0fdf4;
-  --color-foreground: #14532d;
+  --color-foreground: #000000;
   --color-card: #ffffff;
-  --color-card-foreground: #166534;
+  --color-card-foreground: #000000;
   --color-primary: #16a34a;
   --color-primary-foreground: #ffffff;
   --color-muted: #dcfce7;
-  --color-muted-foreground: #15803d;
+  --color-muted-foreground: #000000;
   --color-accent: #22c55e;
   --color-accent-foreground: #ffffff;
   --color-destructive: #ef4444;
