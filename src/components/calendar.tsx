@@ -107,7 +107,7 @@ export default function Calendar() {
                   <div key={event.id} className="h-1.5 w-1.5 rounded-full bg-[--color-primary]" />
                 ))}
                 {dayEvents.length > 2 && (
-                  <span className="text-[10px] text-[--color-primary]">+{dayEvents.length - 2}</span>
+                  <span className="text-[10px] text-black">+{dayEvents.length - 2}</span>
                 )}
               </div>
             )}
