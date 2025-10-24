@@ -24,6 +24,33 @@ export function EventList({ events, currentMonth, currentYear, onDeleteEvent, on
   const handleEdit = (event: CalendarEvent) => {
     onEditEvent?.(event)
   }
+
+  const getCategoryColor = (category?: "work" | "personal" | "reminder" | "other") => {
+    switch (category) {
+      case "work":
+        return "bg-blue-100 border-blue-500 text-blue-700"
+      case "personal":
+        return "bg-green-100 border-green-500 text-green-700"
+      case "reminder":
+        return "bg-yellow-100 border-yellow-500 text-yellow-700"
+      default:
+        return "bg-purple-100 border-purple-500 text-purple-700"
+    }
+  }
+
+  const getCategoryIcon = (category?: "work" | "personal" | "reminder" | "other") => {
+    switch (category) {
+      case "work":
+        return "💼"
+      case "personal":
+        return "👤"
+      case "reminder":
+        return "🔔"
+      default:
+        return "📌"
+    }
+  }
+
   const filteredEvents = events
     .filter((event) => {
       const eventDate = new Date(event.date)
@@ -46,11 +73,18 @@ export function EventList({ events, currentMonth, currentYear, onDeleteEvent, on
       ) : (
         <div className="space-y-3">
           {filteredEvents.map((event) => (
-            <Card key={event.id} className="p-4 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => handleEventClick(event)}>
+            <Card 
+              key={event.id} 
+              className={`p-4 cursor-pointer hover:shadow-lg transition-all duration-200 hover:scale-[1.02] border-l-4 ${getCategoryColor(event.category)}`}
+              onClick={() => handleEventClick(event)}
+            >
               <div className="flex items-start justify-between gap-2">
                 <div className="flex-1">
-                  <h4 className="font-semibold text-[--color-card-foreground]">{event.title}</h4>
-                  <div className="mt-2 flex flex-col gap-1 text-sm text-[--color-muted-foreground]">
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg">{getCategoryIcon(event.category)}</span>
+                    <h4 className="font-semibold text-gray-800">{event.title}</h4>
+                  </div>
+                  <div className="mt-2 flex flex-col gap-1 text-sm text-gray-600">
                     <div className="flex items-center gap-2">
                       <CalendarIcon className="h-3.5 w-3.5" />
                       <span>
@@ -65,7 +99,7 @@ export function EventList({ events, currentMonth, currentYear, onDeleteEvent, on
                       <span>{event.time}</span>
                     </div>
                   </div>
-                  {event.description && <p className="mt-2 text-sm text-[--color-muted-foreground]">{event.description}</p>}
+                  {event.description && <p className="mt-2 text-sm text-gray-600 line-clamp-2">{event.description}</p>}
                 </div>
               </div>
             </Card>
