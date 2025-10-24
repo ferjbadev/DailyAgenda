@@ -56,7 +56,7 @@ export function AddEventDialog({ open, onOpenChange, onAddEvent, selectedDate }:
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[550px] bg-white shadow-2xl border-2 border-[--color-border]">
+      <DialogContent className="bg-white shadow-2xl border-2 border-[--color-border]">
         <DialogHeader className="space-y-3 pb-2">
           <DialogTitle className="text-2xl font-bold text-[--color-primary]">Add Event</DialogTitle>
           <DialogDescription className="text-base">Fill in your event details</DialogDescription>
@@ -64,7 +64,7 @@ export function AddEventDialog({ open, onOpenChange, onAddEvent, selectedDate }:
         <form onSubmit={handleSubmit}>
           <div className="grid gap-5 py-6">
             <div className="grid gap-2.5">
-              <Label htmlFor="title">Title</Label>
+              <Label htmlFor="title" className="text-sm font-semibold text-[--color-foreground]">Title</Label>
               <Input
                 id="title"
                 value={title}
@@ -74,15 +74,15 @@ export function AddEventDialog({ open, onOpenChange, onAddEvent, selectedDate }:
               />
             </div>
             <div className="grid gap-2.5">
-              <Label htmlFor="date">Date</Label>
+              <Label htmlFor="date" className="text-sm font-semibold text-[--color-foreground]">Date</Label>
               <Input id="date" type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
             </div>
             <div className="grid gap-2.5">
-              <Label htmlFor="time">Time</Label>
+              <Label htmlFor="time" className="text-sm font-semibold text-[--color-foreground]">Time</Label>
               <Input id="time" type="time" value={time} onChange={(e) => setTime(e.target.value)} required />
             </div>
             <div className="grid gap-2.5">
-              <Label htmlFor="description">Description (optional)</Label>
+              <Label htmlFor="description" className="text-sm font-semibold text-[--color-foreground]">Description (optional)</Label>
               <Textarea
                 id="description"
                 value={description}
@@ -92,7 +92,7 @@ export function AddEventDialog({ open, onOpenChange, onAddEvent, selectedDate }:
               />
             </div>
           </div>
-          <DialogFooter>
+          <DialogFooter className="gap-3 pt-4">
             <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>
               Cancel
             </Button>
