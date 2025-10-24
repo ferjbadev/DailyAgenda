@@ -93,10 +93,10 @@ export function AddEventDialog({ open, onOpenChange, onAddEvent, selectedDate }:
             </div>
           </div>
           <DialogFooter className="gap-3 pt-4">
+            <Button type="submit">Save Event</Button>
             <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>
               Cancel
             </Button>
-            <Button type="submit">Save Event</Button>
           </DialogFooter>
         </form>
       </DialogContent>
