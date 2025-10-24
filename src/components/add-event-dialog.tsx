@@ -93,11 +93,11 @@ export function AddEventDialog({ open, onOpenChange, onAddEvent, selectedDate }:
               />
             </div>
           </div>
-          <DialogFooter className="gap-3 pt-4 justify-center">
-            <Button type="submit">Save Event
+          <DialogFooter className="gap-3 pt-4 items-center justify-center flex-col sm:flex-row">
+            <Button type="submit" className="w-full sm:w-auto">Save Event
               <PlusIcon className="w-4 h-4 ml-2" />
             </Button>
-            <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>
+            <Button type="button" variant="outline" onClick={() => onOpenChange(false)} className="w-full sm:w-auto">
               Cancel
             </Button>
           </DialogFooter>
