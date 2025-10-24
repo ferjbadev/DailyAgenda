@@ -25,7 +25,7 @@ export type DialogContentProps = React.HTMLAttributes<HTMLDivElement>
 export function DialogContent({ className = "", children, ...props }: DialogContentProps) {
   return (
     <div
-      className={`bg-[--color-background] rounded-lg shadow-lg p-6 w-full max-w-lg mx-4 ${className}`}
+      className={`bg-[--color-background] rounded-lg shadow-lg p-8 w-[90vw] max-w-[1000px] mx-4 ${className}`}
       {...props}
     >
       {children}
