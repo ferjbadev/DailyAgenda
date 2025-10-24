@@ -95,7 +95,7 @@ export default function Calendar() {
         <button
           key={day}
           onClick={() => handleDateClick(day)}
-          className={`aspect-square p-2 rounded-lg transition-colors hover:bg-[--color-accent] hover:text-[--color-accent-foreground] ${
+          className={`aspect-square p-2 rounded-lg transition-colors hover:bg-[--color-accent] hover:text-[--color-accent-foreground] cursor-pointer ${
             isToday ? "bg-[--color-primary] text-[--color-primary-foreground] font-semibold" : ""
           }`}
         >
